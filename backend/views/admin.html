@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Usage Stats — Python Code Runner</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .summary { display: flex; gap: 24px; margin: 24px 0; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px 20px; flex: 1; text-align: center; }
+  .card .n { font-size: 1.8rem; font-weight: 600; display: block; }
+  .card .label { font-size: 0.85rem; color: #666; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee; }
+  .exports { margin-top: 24px; font-size: 0.9rem; }
+  .exports a { margin-right: 16px; }
+</style>
+</head>
+<body>
+  <h1>Python Code Runner — Usage Stats</h1>
+  <p style="color:#666; font-size:0.9rem;">Anonymous, aggregate counts only. No student-identifying data is collected.</p>
+
+  <div class="summary">
+    <div class="card"><span class="n">{{TOTAL_SESSIONS}}</span><span class="label">Total sessions</span></div>
+    <div class="card"><span class="n">{{TOTAL_RUNS}}</span><span class="label">Total runs</span></div>
+    <div class="card"><span class="n">{{SUCCESSFUL_RUNS}}</span><span class="label">Successful runs</span></div>
+  </div>
+
+  <h2>Error breakdown</h2>
+  <table>
+    <thead><tr><th>Type</th><th>Count</th></tr></thead>
+    <tbody>
+      {{ERROR_ROWS}}
+    </tbody>
+  </table>
+
+  <div class="exports">
+    <a href="/api/export.csv">Download CSV</a>
+    <a href="/api/export.json">Download JSON</a>
+  </div>
+</body>
+</html>

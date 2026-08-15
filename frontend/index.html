@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Code Runner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/eclipse.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-blob bg-blob-a" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob-b" aria-hidden="true"></div>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">🐍</span>
+      <h1>Code<span class="brand-accent">Fun</span></h1>
+    </div>
+    <p class="tagline">A fun way to learn Python!</p>
+  </header>
+
+  <main class="app-main">
+    <section class="panel card card-editor">
+      <div class="panel-label">
+        <span class="panel-icon icon-blue">📝</span>
+        Your Code
+      </div>
+      <textarea id="code-editor">print("Hello, world!")</textarea>
+      <button id="run-btn" disabled>
+        <span class="run-btn-icon">▶</span>
+        <span class="run-btn-label">Loading Python…</span>
+      </button>
+    </section>
+
+    <section class="panel card card-output">
+      <div class="panel-label">
+        <span class="panel-icon icon-orange">💬</span>
+        Output
+      </div>
+      <pre id="output" class="output-box"></pre>
+
+      <div id="style-tips" class="style-tips" hidden></div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+
+  <script src="js/config.js"></script>
+  <script src="js/tracking.js"></script>
+  <script src="js/naming-checker.js"></script>
+  <script src="js/error-translator.js"></script>
+  <script src="js/error-marker.js"></script>
+  <script src="js/pyodide-runner.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
