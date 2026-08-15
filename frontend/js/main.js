@@ -12,6 +12,8 @@
   const runBtn = document.getElementById('run-btn');
   const runBtnLabel = runBtn.querySelector('.run-btn-label');
   const outputEl = document.getElementById('output');
+  const outputCard = outputEl.closest('.card');
+  const editorCard = editor.getWrapperElement().closest('.card');
   const styleTipsEl = document.getElementById('style-tips');
 
   function renderOutput(stdout) {
@@ -33,6 +35,7 @@
 
   async function handleRun() {
     errorMarker.clear();
+    mascot.hideOops();
 
     const code = editor.getValue();
     const result = await pyodideRunner.runStudentCode(code);
@@ -42,6 +45,9 @@
 
     if (!result.ok) {
       errorMarker.show(editor, result.friendlyError);
+      mascot.showOops(editorCard);
+    } else {
+      mascot.showYay(outputCard);
     }
 
     let loggedErrorType = null;
@@ -54,6 +60,10 @@
   }
 
   runBtn.addEventListener('click', handleRun);
+  editor.on('change', () => {
+    errorMarker.clear();
+    mascot.hideOops();
+  });
 
   runBtn.disabled = true;
   runBtnLabel.textContent = 'Loading Python…';
