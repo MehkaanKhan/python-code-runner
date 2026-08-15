@@ -1,5 +1,7 @@
 # Python Code Runner
 
+**Live site:** https://mehkaankhan.github.io/python-code-runner/
+
 A beginner-friendly, browser-based Python playground for kids aged 11–13. Students
 type Python into an editor, hit **Run**, and see output — with any error translated
 into a short, plain-language explanation instead of a raw traceback.
@@ -106,11 +108,15 @@ are all independent of styling.
 
 This is a two-piece app, so it deploys as two pieces:
 
-- **Frontend** (static files, no server needed): [Netlify](https://netlify.com),
-  [Vercel](https://vercel.com), [Cloudflare Pages](https://pages.cloudflare.com),
-  or [GitHub Pages](https://pages.github.com) all have free tiers and deploy a
-  static folder with zero config.
-- **Backend** (small Node app + SQLite file): [Render](https://render.com),
+- **Frontend** (static files, no server needed): already deployed to
+  [GitHub Pages](https://mehkaankhan.github.io/python-code-runner/) via the
+  workflow at `.github/workflows/deploy-pages.yml`, which redeploys
+  automatically on every push that touches `frontend/`. [Netlify](https://netlify.com),
+  [Vercel](https://vercel.com), or [Cloudflare Pages](https://pages.cloudflare.com)
+  are equally good free alternatives if you'd rather not use Pages.
+- **Backend** (small Node app + SQLite file) — not yet deployed anywhere, so
+  usage tracking on the live site above is currently inert (the frontend still
+  points at `http://localhost:3000`, see below). Options: [Render](https://render.com),
   [Fly.io](https://fly.io), or [Railway](https://railway.app) all offer
   cheap/free tiers for a small Node service. Note: SQLite needs a *persistent*
   disk — some free tiers use ephemeral storage that resets on redeploy, so check
