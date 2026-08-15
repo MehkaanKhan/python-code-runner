@@ -152,6 +152,12 @@ body {
   font-size: 1rem;
 }
 
+.panel-icon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .icon-blue {
   background: #e4edff;
 }
